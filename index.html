@@ -1,81 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Prompt.Fail</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <meta name="description" content="A modern and interactive website that celebrates AI prompt failures, misunderstandings, and unexpected responses." />
     <!-- Preload critical fonts -->
-    <link rel="preload" href="fonts/ebgaramond-regular.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="preload" href="fonts/spacegrotesk-medium.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="preload" href="fonts/sourceserifpro-regular.woff2" as="font" type="font/woff2" crossorigin>
-</head>
-<body>
-    <!-- Container for React component -->
-    <div id="claube-root"></div>
-    
-    <div class="header">
-        <div class="logo">
-            <img src="images/claube-logo.svg" alt="Claube" class="logo-image">
-        </div>
-        <div class="plan-badge">
-            <span class="plan-text">Using unlimited prompt.FaiL</span>
-            <a href="#" class="upgrade-link">Downgrade</a>
-        </div>
-    </div>
-
-    <div class="main-content">
-        <h1 class="greeting">
-            Good morning, <span class="glitch-text">f̸̨̛̗̱̩̤̖̖͈̔̊̀̈́͆̎͌̋̕͠ͅ_̷̖̹̰͉̣͕̦̠͚̟̂̀̒̎̔̄̓̈́ͅ'̸̢̧̯̠̬̗̹͚͎͔̍̓́̾̆͛̈͝ ̶̡͚͔͔̬͚͔̝̤̻̈̂͐͗͐̎͆͌͠C̴͉̙̣̭̭̗̣̦̣̣̈́̊͊̔̾̆̉̀͝.̵̧̥̹͓̤̖̲̼̮͖̃̑̈́̐̉̆̊̊̓̚.̷̨̮̰̭̥̱͕̪̬̱̃̉̇̎̏̐̈́̉̑͠k̴̡̫̻̭̭̹͙̲̙̗͋̑̓̓̓̅͗̈́͗:̷̧̛̘͚̩̫̰̘̪͚̞̌̒̎̀̏̽̋̚͝</span>
-        </h1>
-
-        <div class="input-container">
-            <textarea class="input-field" placeholder="How can Claube misinterpret you today?"></textarea>
-            <div class="input-footer">
-                <div class="model-info">Claube 3.69 S̷o̷n̷n̷ǝt</div>
-            </div>
-        </div>
-
-        <div class="examples-container">
-            <div class="examples-header">
-                <div class="examples-title">Get startled with an example bełow</div>
-                <button class="add-content">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M3 21V3h18v18H3z"/>
-                        <path d="M8 12h8M12 8v8"/>
-                    </svg>
-                    Add cuntent
-                </button>
-            </div>
-            <div class="examples-grid">
-                <div class="example-card">Summarize mëeting notes that don't exist</div>
-                <div class="example-card">Extract insïghts from empty report</div>
-                <div class="example-card">Generate excėl formulas (may contain errors)</div>
-            </div>
-        </div>
-
-        <div class="artifacts-banner">
-            <div class="new-badge">NƎW</div>
-            <div class="artifacts-text">
-                Artifæcts: Create and iterate on documents, code, and møre within Claube. <a href="#" class="try-link">Try it øut</a>
-            </div>
-            <button class="close-button">×</button>
-        </div>
-    </div>
-
-    <div class="avatar">PF</div>
-
-    <!-- Main site functionality -->
-    <script src="script.js"></script>
-    
-    <!-- Placeholder for Claube component integration -->
-    <script src="claube-app.js"></script>
-    
-    <!-- This would be needed for a proper React integration -->
-    <!-- 
-    <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
-    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
-    -->
-</body>
+    <link rel="preload" href="/fonts/ebgaramond-regular.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/fonts/spacegrotesk-medium.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/fonts/sourceserifpro-regular.woff2" as="font" type="font/woff2" crossorigin>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
 </html>
