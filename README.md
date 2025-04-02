@@ -1,6 +1,7 @@
 # Prompt.Fail
 
-A modern and interactive website that celebrates AI prompt failures, misunderstandings, and unexpected responses.
+A modern and interactive website that recognises Claudeism, AI prompt failures, misunderstandings, and unexpected responses.
+https://github.com/aegntic/claudeism
 
 ## Overview
 
@@ -24,7 +25,7 @@ Prompt.Fail is a creative, visually stunning website that showcases the fascinat
 
 1. Clone this repository:
 ```
-git clone https://github.com/yourusername/prompt-fail.git
+git clone https://github.com/aegntic/prompt-fail.git
 cd prompt-fail
 ```
 
@@ -73,4 +74,4 @@ MIT © 2025 Prompt.Fail
 ## Acknowledgements
 
 - Inspired by the creative chaos of AI misunderstandings
-- Built with a love for both the capabilities and limitations of AI systems
+- Built with a love for both the capabilities and limitations of AI systems and the lols
