@@ -6,11 +6,14 @@ import styles from './styles/Home.module.css'
 function App() {
   const [showClaubeUI, setShowClaubeUI] = useState(false)
 
+  // Use relative paths with the base URL in mind
+  const logoPath = import.meta.env.BASE_URL + 'images/claube-logo.svg';
+
   return (
     <>
       <div className={styles.header}>
         <div className={styles.logo}>
-          <img src="/images/claube-logo.svg" alt="Claube" className={styles.logoImage} />
+          <img src={logoPath} alt="Claube" className={styles.logoImage} />
         </div>
         <div className={styles.planBadge}>
           <span className={styles.planText}>Using unlimited prompt.FaiL</span>
