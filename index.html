@@ -1,300 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Claube</title>
-    <style>
-        :root {
-            --bg-color: #202123;
-            --card-bg: #2d2d30;
-            --text-primary: #f0f0f0;
-            --text-secondary: #9e9ea7;
-            --accent-color: #5436DA;
-            --border-color: #444444;
-            --input-bg: #343438;
-            --badge-bg: #444446;
-            --hover-color: #3a3a3d;
-            --error-text: #ff8585;
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/x-icon" href="/prompt-fail/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Prompt.Fail</title>
+    <meta name="description" content="A modern and interactive website that celebrates AI prompt failures, misunderstandings, and unexpected responses." />
+    <!-- Preload critical fonts -->
+    <link rel="preload" href="/prompt-fail/fonts/ebgaramond-regular.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/prompt-fail/fonts/spacegrotesk-medium.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/prompt-fail/fonts/sourceserifpro-regular.woff2" as="font" type="font/woff2" crossorigin>
+    
+    <!-- GitHub Pages SPA routing -->
+    <script type="text/javascript">
+      // Single Page Apps for GitHub Pages
+      // MIT License
+      // https://github.com/rafgraph/spa-github-pages
+      (function(l) {
+        if (l.search[1] === '/' ) {
+          var decoded = l.search.slice(1).split('&').map(function(s) { 
+            return s.replace(/~and~/g, '&')
+          }).join('?');
+          window.history.replaceState(null, null,
+              l.pathname.slice(0, -1) + decoded + l.hash
+          );
         }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: -apple-system, BlinkMacSystemFont, 'Söhne', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-        }
-
-        body {
-            background-color: var(--bg-color);
-            color: var(--text-primary);
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 16px 24px;
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        .logo {
-            font-size: 24px;
-            font-weight: 500;
-            letter-spacing: 0.5px;
-        }
-
-        .plan-badge {
-            background-color: var(--badge-bg);
-            border-radius: 24px;
-            padding: 8px 16px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .plan-text {
-            color: var(--text-secondary);
-        }
-
-        .upgrade-link {
-            color: var(--accent-color);
-            text-decoration: none;
-        }
-
-        .main-content {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: flex-start;
-            padding: 40px 24px;
-            max-width: 1200px;
-            margin: 0 auto;
-            width: 100%;
-        }
-
-        .greeting {
-            font-size: 3.5rem;
-            font-weight: 500;
-            margin-bottom: 40px;
-            text-align: center;
-            color: var(--text-primary);
-        }
-
-        .glitch-text {
-            font-family: monospace;
-            color: var(--error-text);
-            opacity: 0.7;
-            letter-spacing: -1px;
-        }
-
-        .input-container {
-            width: 100%;
-            max-width: 800px;
-            border-radius: 12px;
-            background-color: var(--card-bg);
-            overflow: hidden;
-            border: 1px solid var(--border-color);
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-        }
-
-        .input-field {
-            width: 100%;
-            min-height: 200px;
-            padding: 20px;
-            background-color: transparent;
-            border: none;
-            color: var(--text-primary);
-            font-size: 1rem;
-            line-height: 1.5;
-            resize: none;
-            outline: none;
-        }
-
-        .input-footer {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 12px 20px;
-            border-top: 1px solid var(--border-color);
-        }
-
-        .model-info {
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-        }
-
-        .action-buttons {
-            display: flex;
-            gap: 12px;
-        }
-
-        .examples-container {
-            width: 100%;
-            max-width: 800px;
-            margin-top: 20px;
-            background-color: rgba(255, 255, 255, 0.03);
-            border-radius: 12px;
-            padding: 20px;
-        }
-
-        .examples-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 16px;
-        }
-
-        .examples-title {
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-        }
-
-        .add-content {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            color: var(--text-primary);
-            background: none;
-            border: none;
-            cursor: pointer;
-            font-size: 0.9rem;
-        }
-
-        .examples-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 12px;
-        }
-
-        .example-card {
-            background-color: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            padding: 16px;
-            cursor: pointer;
-            transition: background-color 0.2s;
-        }
-
-        .example-card:hover {
-            background-color: var(--hover-color);
-        }
-
-        .artifacts-banner {
-            display: flex;
-            align-items: center;
-            width: 100%;
-            max-width: 800px;
-            margin-top: 30px;
-            background-color: rgba(145, 129, 244, 0.1);
-            border-radius: 12px;
-            padding: 16px 20px;
-        }
-
-        .new-badge {
-            background-color: var(--accent-color);
-            color: white;
-            padding: 4px 8px;
-            border-radius: 4px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            margin-right: 12px;
-        }
-
-        .artifacts-text {
-            flex: 1;
-            color: var(--text-primary);
-        }
-
-        .try-link {
-            color: var(--accent-color);
-            text-decoration: none;
-        }
-
-        .close-button {
-            background: none;
-            border: none;
-            color: var(--text-secondary);
-            cursor: pointer;
-            font-size: 1.2rem;
-        }
-
-        .avatar {
-            width: 40px;
-            height: 40px;
-            background-color: #5a5a6e;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            color: white;
-            margin-left: 24px;
-        }
-
-        @media (max-width: 768px) {
-            .greeting {
-                font-size: 2.5rem;
-            }
-
-            .examples-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
-</head>
-<body>
-    <div class="header">
-        <div class="logo">Claube</div>
-        <div class="plan-badge">
-            <span class="plan-text">Using unlimited prompt.FaiL</span>
-            <a href="#" class="upgrade-link">Downgrade</a>
-        </div>
-    </div>
-
-    <div class="main-content">
-        <h1 class="greeting">
-            Good morning, <span class="glitch-text">f̸̨̛̗̱̩̤̖̖͈̔̊̀̈́͆̎͌̋̕͠ͅ_̷̖̹̰͉̣͕̦̠͚̟̂̀̒̎̔̄̓̈́ͅ'̸̢̧̯̠̬̗̹͚͎͔̍̓́̾̆͛̈͝ ̶̡͚͔͔̬͚͔̝̤̻̈̂͐͗͐̎͆͌͠C̴͉̙̣̭̭̗̣̦̣̣̈́̊͊̔̾̆̉̀͝.̵̧̥̹͓̤̖̲̼̮͖̃̑̈́̐̉̆̊̊̓̚.̷̨̮̰̭̥̱͕̪̬̱̃̉̇̎̏̐̈́̉̑͠k̴̡̫̻̭̭̹͙̲̙̗͋̑̓̓̓̅͗̈́͗:̷̧̛̘͚̩̫̰̘̪͚̞̌̒̎̀̏̽̋̚͝</span>
-        </h1>
-
-        <div class="input-container">
-            <textarea class="input-field" placeholder="How can Claube misinterpret you today?"></textarea>
-            <div class="input-footer">
-                <div class="model-info">Claube 3.69 S̷o̷n̷n̷ǝt</div>
-            </div>
-        </div>
-
-        <div class="examples-container">
-            <div class="examples-header">
-                <div class="examples-title">Get startled with an example bełow</div>
-                <button class="add-content">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M3 21V3h18v18H3z"/>
-                        <path d="M8 12h8M12 8v8"/>
-                    </svg>
-                    Add cuntent
-                </button>
-            </div>
-            <div class="examples-grid">
-                <div class="example-card">Summarize mëeting notes that don't exist</div>
-                <div class="example-card">Extract insïghts from empty report</div>
-                <div class="example-card">Generate excėl formulas (may contain errors)</div>
-            </div>
-        </div>
-
-        <div class="artifacts-banner">
-            <div class="new-badge">NƎW</div>
-            <div class="artifacts-text">
-                Artifæcts: Create and iterate on documents, code, and møre within Claube. <a href="#" class="try-link">Try it øut</a>
-            </div>
-            <button class="close-button">×</button>
-        </div>
-    </div>
-
-    <div class="avatar">PF</div>
-</body>
+      }(window.location))
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
 </html>
