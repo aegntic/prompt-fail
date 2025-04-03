@@ -5,7 +5,7 @@ import { resolve } from 'path'
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
-  base: '/', 
+  base: '/', // Using custom domain prompt.fail
   resolve: {
     alias: {
       '@': resolve(__dirname, 'src'),

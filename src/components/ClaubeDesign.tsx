@@ -347,9 +347,9 @@ const ClaubeShareFeaturePreview = () => {
                 {aiAvatarSvg}
               </div>
               <div className={styles.loadingDots}>
-                <span style={{...styles.loadingDot, animationDelay: '0s'}}>.</span>
-                <span style={{...styles.loadingDot, animationDelay: '0.2s'}}>.</span>
-                <span style={{...styles.loadingDot, animationDelay: '0.4s'}}>.</span>
+                <span className={`${styles.loadingDot} ${styles.dot1}`}>.</span>
+                <span className={`${styles.loadingDot} ${styles.dot2}`}>.</span>
+                <span className={`${styles.loadingDot} ${styles.dot3}`}>.</span>
               </div>
             </div>
           )}

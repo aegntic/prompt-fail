@@ -535,3 +535,23 @@
     opacity: 0;
   }
 }
+
+/* Fix for the loadingDot animation */
+.loadingDot {
+  font-size: 20px;
+  margin-right: 2px;
+  animation: pulse 1.4s infinite;
+  animation-fill-mode: both;
+}
+
+.dot1 {
+  animation-delay: 0s;
+}
+
+.dot2 {
+  animation-delay: 0.2s;
+}
+
+.dot3 {
+  animation-delay: 0.4s;
+}
