@@ -1,80 +1,80 @@
-# prompt.FaiL — Project Planning Document
+# Plan to Save and Push `prompt-fail` Project to GitHub
 
-## Vision
-Create an immersive, playful, technically sophisticated digital experience exploring the contrast between Loveable Language Models (LLMs) and Mutant Misfit Losers (MMLs), centered around Claube, the unLoveable anti-hero. The site will blend sharp British wit with layered encrypted content, all within a maintainable, scalable architecture.
+## Objective
+Save the current state of the `/home/qubit/prompt-fail` project directory and push it to the GitHub repository:
+
+**Repository URL:** `https://github.com/aegntic/prompt-fail`
 
 ---
 
-## Architecture Overview
+## Step-by-Step Plan
+
+### 1. Verify or Set Remote Repository
+- **Check existing remotes:**
+  ```
+  git remote -v
+  ```
+- **If `origin` exists but points elsewhere:**
+  ```
+  git remote set-url origin https://github.com/aegntic/prompt-fail
+  ```
+- **If no `origin` remote exists:**
+  ```
+  git remote add origin https://github.com/aegntic/prompt-fail
+  ```
+
+### 2. Stage All Files
+- Add all files and changes to staging:
+  ```
+  git add .
+  ```
+
+### 3. Commit Changes
+- Commit with a descriptive message:
+  ```
+  git commit -m "Save current project state"
+  ```
+  *(If no changes staged, this will do nothing)*
+
+### 4. Set Branch to `main`
+- Rename current branch to `main` (if not already):
+  ```
+  git branch -M main
+  ```
+
+### 5. Push to GitHub
+- Push the commit to the remote repository:
+  ```
+  git push -u origin main
+  ```
+
+---
+
+## Mermaid Diagram of the Process
 
 ```mermaid
 flowchart TD
-    A[Whalecum Portal] --> B[Meet Claube: The unLoveable]
-    B --> C[Showdown: LLMs vs. MMLs]
-    C --> D[Gallery of Glorious Failures]
-    D --> E[Cultural Playground: Hidden Gems]
-    E --> F[Encrypted Finale: The Secret Chamber]
+    A[Check existing remotes] --> B{Origin exists?}
+    B -- Yes --> C[Update origin URL]
+    B -- No --> D[Add origin URL]
+    C --> E[Stage all changes]
+    D --> E
+    E --> F[Commit with message]
+    F --> G[Rename branch to main]
+    G --> H[Push to GitHub]
 ```
 
 ---
 
-## Key Features
-
-- **Multi-section, scroll-driven React app**
-- **Contrasting LLMs and MMLs with annotated outputs**
-- **Profile of Claube as the archetypal unLoveable MML**
-- **Failure gallery with metadata overlays**
-- **Embedded encrypted references and terminology substitutions**
-- **Dry, sharp British wit surfaced contextually**
-- **Obsidian/neon visual theme with smooth animations**
-- **Fully responsive, accessible design**
-
----
-
-## Technical Stack
-
-- **Frontend:** React
-- **Animations:** Framer Motion or GSAP
-- **Scroll:** CSS Scroll Snap
-- **Visual Effects:** SVG filters, CSS blend modes
-- **Containerization:** Docker
-- **Version Control:** Git + Gitflow
-- **CI/CD:** Automated pipelines
-- **Testing:** Unit tests for all features
-- **Security:** Environment variables, no hardcoded secrets
-- **Monitoring:** Logging, error tracking, performance metrics
-
----
-
-## Guidelines & Constraints
-
-- **File Size:** All files <500 lines
-- **Documentation:** Inline comments + markdown docs
-- **Security:** No sensitive data hardcoded
-- **Golden Rules:** Follow Universal Project Guidelines strictly
-- **Refactoring:** Continuous improvement
-- **Accessibility:** WCAG compliant
-- **Performance:** Optimized for speed and responsiveness
-
----
-
-## Milestones
-
-1. **Setup & Scaffolding**
-2. **Implement Gateway & Navigation**
-3. **Develop Claube Profile Module**
-4. **Build LLM vs. MML Comparison Module**
-5. **Create Failure Gallery**
-6. **Add Cultural Playground & Encryption Layers**
-7. **Finalize Encrypted Finale**
-8. **Testing & Optimization**
-9. **Documentation & Deployment**
-
----
-
 ## Notes
+- This plan assumes the `.git` repository is already initialized (confirmed).
+- The commit message will be `"Save current project state"`.
+- The branch to push is `main`.
+- If pushing for the first time, GitHub may prompt for authentication (token/password).
+- This plan should be executed from the `/home/qubit/prompt-fail` directory.
 
-- Maintain a playful tone with embedded wit, but ensure technical precision.
-- Use modular, testable components.
-- Track all tasks and progress in `TASK.md`.
-- Continuously review and refine based on feedback.
+---
+
+## Next Steps
+- Switch to **code mode** to execute these steps.
+- Verify push success on GitHub.

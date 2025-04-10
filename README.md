@@ -1,77 +1,139 @@
-# Prompt.Fail
+# prompt.FaiL — Immersive AI Experience
 
-A modern and interactive website that recognises Claudeism, AI prompt failures, misunderstandings, and unexpected responses.
-https://github.com/aegntic/claudeism
+---
 
 ## Overview
 
-Prompt.Fail is a creative, visually stunning website that showcases the fascinating gap between human intention and AI interpretation. The site features:
+prompt.FaiL is a **visually striking, witty, and technically sophisticated immersive AI platform** exploring the contrast between Loveable Language Models (LLMs) and Mutant Misfit Losers (MMLs), centered around Claube, the unLoveable anti-hero. It blends Mondrian-inspired design, playful 3D characters, encrypted cultural layers, and sharp British humor into a seamless, engaging user journey.
 
-- A cosmic, glitchy design aesthetic that embraces the unpredictable nature of AI responses
-- Interactive examples of real-world prompt failures across various AI models
-- A playground where users can generate their own AI failure responses
-- Insights and statistics about common failure types
-- A community-driven gallery of prompt failures
+---
 
-## Features
+## Key Features
 
-- **Glitch Animation Effects**: Modern text and image glitch effects using CSS animations
-- **Interactive Playground**: Test different "chaos levels" and settings to generate amusing AI failures
-- **Dynamic Content**: Load more examples, animated typing effects, and interactive UI elements
-- **Responsive Design**: Fully responsive across all device sizes
-- **Dynamic Chart**: Visual representation of AI failure categories using Chart.js
+- **Immersive hero section** with animated witty greetings and 3D mascot
+- **Claube persona showcase** with 3D avatar and witty captions
+- **Interactive LLM vs. MML comparison** with annotations and animations
+- **Failure gallery** highlighting AI missteps with playful commentary
+- **Cultural playground** with encrypted references and layered overlays
+- **Encrypted cinematic finale** with compelling call-to-action
+- **Flawless scroll snapping and immersive routing**
+- **Fully responsive, accessible, and performant**
+
+---
+
+## Architecture Overview
+
+- **Frontend:** React + TypeScript SPA
+- **Routing:** react-router-dom with scroll sync
+- **Animations:** Framer Motion, Lottie, CSS
+- **Styling:** CSS Grid, Flexbox, CSS Variables
+- **3D Assets:** Optimized voxel models, SVG, GLTF
+- **Containerization:** Docker
+- **CI/CD:** Automated pipelines
+- **Testing:** Jest + React Testing Library
+- **Security:** Environment variables, secret scanning
+- **Monitoring:** Logging, analytics, performance metrics
+
+See [`PLANNING.md`](./PLANNING.md) and [`DESIGN.md`](./DESIGN.md) for full details.
+
+---
 
 ## Getting Started
 
-1. Clone this repository:
-```
+1. **Clone the repository**
+
+```bash
 git clone https://github.com/aegntic/prompt-fail.git
 cd prompt-fail
 ```
 
-2. Open the project in your preferred code editor
+2. **Install dependencies**
 
-3. Launch with a local server of your choice:
-```
-# Using Python
-python -m http.server
-
-# Using Node.js and npm
-npx serve
+```bash
+npm install
 ```
 
-4. Visit `http://localhost:8000` (or the port provided by your server)
+3. **Configure environment variables**
+
+- Copy `.env.example` to `.env`
+- Fill in secrets and API URLs
+- **Never commit `.env` to version control**
+
+4. **Run the development server**
+
+```bash
+npm run dev
+```
+
+5. **Open in browser**
+
+Visit `http://localhost:5173` (or your configured port)
+
+---
+
+## Environment Variables
+
+See `.env.example` for required variables:
+
+- `VITE_API_URL` — Frontend API base URL
+- `JWT_SECRET`, `DATABASE_URL` — Backend secrets
+- Avoid exposing sensitive secrets with `VITE_` prefix
+
+---
+
+## Docker Usage
+
+Build and run with Docker:
+
+```bash
+docker build -t promptfail-app .
+docker run -p 3000:3000 --env-file .env promptfail-app
+```
+
+Use `docker-compose.yml` for multi-service orchestration.
+
+---
+
+## Contribution Guidelines
+
+- **Branching:** Use Gitflow (`feature/`, `bugfix/`, `release/`)
+- **Commits:** Descriptive, atomic, conventional
+- **Code Style:** Enforced with ESLint, Prettier
+- **Testing:** Write and maintain unit/integration tests
+- **Documentation:** Update inline comments and markdown files
+- **Security:** Never commit secrets; follow best practices
+- **Pull Requests:** Require review, pass all checks before merge
+
+---
 
 ## Project Structure
 
 ```
 prompt-fail/
-├── index.html        # Main HTML structure
-├── styles.css        # All CSS styles and animations
-├── script.js         # JavaScript for interactivity
-├── favicon.ico       # Site favicon
-└── README.md         # Project documentation
+├── src/                   # React app source
+│   ├── components/        # Modular components
+│   ├── styles/            # CSS modules and global styles
+│   ├── assets/            # Images, 3D models, animations
+│   ├── App.tsx            # Main app container
+│   └── main.tsx           # Entry point
+├── public/                # Static assets
+├── .env.example           # Environment variable template
+├── PLANNING.md            # Architecture & milestones
+├── DESIGN.md              # Branding & design system
+├── TASK.md                # Granular task breakdown
+├── README.md              # This file
+└── Dockerfile             # Containerization
 ```
 
-## Technology
-
-- Pure HTML/CSS/JavaScript (no frameworks)
-- Custom animations and transitions
-- Chart.js for data visualization
-
-## Future Enhancements
-
-- Backend integration to save and share real user-generated prompt failures
-- User accounts and personalized galleries
-- API integration with actual AI models to generate real failures
-- Dark/light theme toggle
-- Additional failure categories and examples
+---
 
 ## License
 
-MIT © 2025 Prompt.Fail
+MIT © 2025 prompt.FaiL
+
+---
 
 ## Acknowledgements
 
-- Inspired by the creative chaos of AI misunderstandings
-- Built with a love for both the capabilities and limitations of AI systems and the lols
+- Inspired by AI quirks, failures, and creative chaos
+- Built with a love for clever design, wit, and technical excellence
