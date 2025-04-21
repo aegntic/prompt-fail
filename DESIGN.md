@@ -127,6 +127,16 @@ flowchart TD
 
 ## Technical Specifications
 
+Based on recent codebase improvements, the following technical specifications have been updated:
+
+- **Frontend Refactoring:** The large `ClaubeDesign.tsx` component has been broken down into smaller, more manageable and reusable components.
+- **Secure Secret Management:** Implementation now strictly adheres to using environment variables for sensitive data, removing hardcoded secrets.
+- **Database Migrations:** Database schema changes are now managed via Umzug/sequelize-cli migrations, replacing `sequelize.sync()` for production safety.
+
+---
+
+## Technical Specifications
+
 - **Routing:** react-router-dom with scroll sync
 - **Animations:** Framer Motion, Lottie, CSS
 - **3D Assets:** Optimized voxel models, SVGs, or lightweight GLTF

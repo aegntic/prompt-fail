@@ -31,8 +31,10 @@ prompt.FaiL is a **visually striking, witty, and technically sophisticated immer
 - **Containerization:** Docker
 - **CI/CD:** Automated pipelines
 - **Testing:** Jest + React Testing Library
-- **Security:** Environment variables, secret scanning
+- **Security:** Secure secret management using environment variables, secret scanning, and avoiding hardcoded sensitive data.
 - **Monitoring:** Logging, analytics, performance metrics
+
+Significant improvements have been made based on recent codebase reviews, including refactoring of `src/components/ClaubeDesign.tsx` into smaller, more manageable components and implementing a robust database migration system using Umzug/sequelize-cli.
 
 See [`PLANNING.md`](./PLANNING.md) and [`DESIGN.md`](./DESIGN.md) for full details.
 
@@ -71,13 +73,38 @@ Visit `http://localhost:5173` (or your configured port)
 
 ---
 
-## Environment Variables
+## Environment Variables and Secure Secret Management
 
-See `.env.example` for required variables:
+We utilize environment variables for managing configuration and sensitive data. See `.env.example` for required variables:
 
 - `VITE_API_URL` — Frontend API base URL
 - `JWT_SECRET`, `DATABASE_URL` — Backend secrets
-- Avoid exposing sensitive secrets with `VITE_` prefix
+
+**Important:**
+- Copy `.env.example` to `.env` and fill in your specific values.
+- **Never commit `.env` or any file containing sensitive secrets to version control.**
+- Avoid exposing sensitive backend secrets by prefixing frontend environment variables with `VITE_`.
+
+---
+
+## Database Migrations
+
+Database schema changes are managed using Umzug and sequelize-cli.
+
+- **Development:** Migrations are automatically run when the backend server starts (`npm run dev` in the `backend/` directory).
+- **Production:** Automatic migrations are skipped. You must run migrations manually using the sequelize-cli:
+
+```bash
+npx sequelize-cli db:migrate
+```
+
+To create a new migration, use:
+
+```bash
+npx sequelize-cli migration:generate --name your-migration-name
+```
+
+Refer to the Umzug and Sequelize-CLI documentation for more advanced usage.
 
 ---
 

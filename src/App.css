@@ -40,3 +40,74 @@
 .read-the-docs {
   color: #888;
 }
+
+/* Glitch Hover Effect */
+@keyframes glitch {
+  0% {
+    transform: translate(0);
+    text-shadow: 1px 1px 0 red, -1px -1px 0 blue;
+  }
+  25% {
+    transform: translate(-3px, 3px);
+    text-shadow: -1px -1px 0 red, 1px 1px 0 blue;
+  }
+  50% {
+    transform: translate(3px, -3px);
+    text-shadow: 1px -1px 0 red, -1px 1px 0 blue;
+  }
+  75% {
+    transform: translate(-3px, -3px);
+    text-shadow: -1px 1px 0 red, 1px -1px 0 blue;
+  }
+  100% {
+    transform: translate(0);
+    text-shadow: 1px 1px 0 red, -1px -1px 0 blue;
+  }
+}
+
+.glitch-hover:hover {
+  animation: glitch 0.2s infinite linear alternate-reverse;
+  /* Add vendor prefixes if needed */
+}
+
+/* Optional: Add pseudo-elements for more intense glitch */
+.glitch-hover::before,
+.glitch-hover::after {
+  content: attr(data-text); /* Requires setting data-text attribute on elements */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: inherit; /* Or specific background */
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+}
+
+.glitch-hover:hover::before {
+  left: 2px;
+  text-shadow: -1px 0 red;
+  animation: glitch-anim-1 0.2s infinite linear alternate-reverse;
+}
+
+.glitch-hover:hover::after {
+  left: -2px;
+  text-shadow: -1px 0 blue;
+  animation: glitch-anim-2 0.2s infinite linear alternate-reverse;
+}
+
+@keyframes glitch-anim-1 {
+  0% { clip: rect(44px, 9999px, 56px, 0); }
+  25% { clip: rect(17px, 9999px, 91px, 0); }
+  50% { clip: rect(50px, 9999px, 102px, 0); }
+  75% { clip: rect(23px, 9999px, 62px, 0); }
+  100% { clip: rect(94px, 9999px, 130px, 0); }
+}
+
+@keyframes glitch-anim-2 {
+  0% { clip: rect(129px, 9999px, 119px, 0); }
+  25% { clip: rect(40px, 9999px, 19px, 0); }
+  50% { clip: rect(83px, 9999px, 40px, 0); }
+  75% { clip: rect(130px, 9999px, 76px, 0); }
+  100% { clip: rect(22px, 9999px, 148px, 0); }
+}

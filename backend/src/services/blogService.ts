@@ -18,7 +18,7 @@ export const gatherNews = async () => {
 };
 
 // 2. Topic Selection
-export const selectTopic = async (news: any[]) => {
+export const selectTopic = async (news: any) => {
     try {
         // TODO: Implement AI model for topic selection (e.g., GPT-3)
         // This is a placeholder

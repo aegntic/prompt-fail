@@ -47,10 +47,10 @@
 /* Base Styles and Variables */
 :root {
   /* Updated color scheme */
-  --dark-bg: #121212; /* near-black, soft matte */
+  --dark-bg: #1a1d21; /* Softer dark charcoal */
   --light-bg: #F8F4ED; /* creamy off-white */
   --accent-color: #E05B32; /* soft burnt orange / red clay */
-  --text-dark-mode: #FAF8F4; /* near white, not pure white */
+  --text-dark-mode: #e1e1e6; /* Slightly softer off-white */
   --text-light-mode: #121212; /* same as dark background, for contrast */
   
   /* Original theme colors - keeping for now for compatibility */
@@ -96,7 +96,7 @@ html {
   font-size: 16px;
   scroll-behavior: smooth;
   scrollbar-width: thin;
-  scrollbar-color: var(--accent-color) var(--dark-bg);
+  scrollbar-color: #4f4f52 var(--dark-bg); /* More neutral scrollbar */
 }
 
 body {

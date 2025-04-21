@@ -47,13 +47,14 @@
   justify-content: center;
   padding: 8px;
   border-radius: 50%;
-  transition: all 0.2s ease;
+  transition: all var(--transition-fast);
   opacity: 0.7;
 }
 
-.iconButtonHover {
-  background-color: rgba(224, 91, 50, 0.1);
+.iconButton:hover { /* Unified hover style */
+  background-color: rgba(255, 255, 255, 0.1); /* Subtle light background */
   opacity: 1;
+  transform: scale(1.1); /* Slight scale effect */
 }
 
 .planBadge {
@@ -96,21 +97,16 @@
   font-family: var(--font-heading);
 }
 
-.glitchText {
-  font-family: monospace;
-  color: var(--accent-color);
-  opacity: 0.7;
-  letter-spacing: -1px;
-}
+/* .glitchText removed as it's no longer used */
 
 .settingsPanel {
   width: 100%;
   max-width: 800px;
-  background-color: rgba(30, 30, 30, 0.5);
+  background-color: #20232a; /* Unified dark background */
   border-radius: 12px;
   padding: 20px;
   margin-bottom: 20px;
-  border: 1px solid rgba(248, 244, 237, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.08); /* Subtle border */
 }
 
 .settingsGrid {
@@ -171,9 +167,9 @@
   width: 100%;
   max-width: 800px;
   border-radius: 12px;
-  background-color: rgba(30, 30, 30, 0.5);
+  background-color: #20232a; /* Unified dark background */
   overflow: hidden;
-  border: 1px solid rgba(248, 244, 237, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.08); /* Subtle border */
   box-shadow: 0 10px 30px rgba(5, 5, 5, 0.5);
 }
 
@@ -188,6 +184,11 @@
   line-height: 1.5;
   resize: none;
   outline: none;
+  transition: border-color var(--transition-fast);
+}
+
+.inputField:focus {
+  border-color: var(--accent-color); /* Highlight border on focus */
 }
 
 .inputFooter {
@@ -214,7 +215,14 @@
   justify-content: center;
   padding: 8px;
   border-radius: 50%;
-  transition: background-color 0.2s;
+  transition: all var(--transition-fast);
+  opacity: 0.8; /* Slightly more visible by default */
+}
+
+.sendButton:hover {
+  background-color: rgba(224, 91, 50, 0.2); /* Accent color background */
+  opacity: 1;
+  transform: scale(1.1); /* Slight scale effect */
 }
 
 .chatContainer {
@@ -224,8 +232,8 @@
   max-height: 400px;
   overflow-y: auto;
   border-radius: 12px;
-  background-color: rgba(30, 30, 30, 0.4);
-  border: 1px solid rgba(248, 244, 237, 0.1);
+  background-color: #20232a; /* Unified dark background */
+  border: 1px solid rgba(255, 255, 255, 0.08); /* Subtle border */
   padding: 16px;
   display: block;
 }
@@ -235,23 +243,25 @@
   margin-bottom: 16px;
   position: relative;
   padding: 12px;
-  border-radius: 8px;
+  border-radius: 12px; /* Softer corners */
   max-width: 85%;
+  padding: 14px; /* Slightly adjusted padding */
+  position: relative; /* Needed for absolute positioning of share button */
 }
 
 .userMessage {
   margin-left: auto;
-  background-color: rgba(224, 91, 50, 0.2);
-  border-top-right-radius: 2px;
+  background-color: rgba(224, 91, 50, 0.2); /* Keep accent for user */
+  border-bottom-right-radius: 2px; /* Pointy corner towards user */
 }
 
 .aiMessage {
   margin-right: auto;
-  background-color: rgba(35, 35, 35, 0.7);
-  border-top-left-radius: 2px;
+  background-color: #20232a; /* Unified dark background for AI messages */
+  border-bottom-left-radius: 2px; /* Pointy corner towards AI */
   display: flex;
   align-items: flex-start;
-  margin-bottom: 30px; /* Extra space for the share button below */
+  /* margin-bottom: 30px; Removed extra space */
 }
 
 .messageAvatar {
@@ -280,30 +290,35 @@
 }
 
 .shareButton {
-  position: absolute;
-  bottom: -24px;
-  right: 0;
-  background-color: transparent;
+  position: absolute; /* Position inside the message bubble */
+  bottom: 8px; /* Adjust position */
+  right: 8px;  /* Adjust position */
+  background-color: rgba(255, 255, 255, 0.1); /* Subtle background on hover */
   border: none;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 4px;
-  opacity: 0.7;
+  padding: 6px;
+  border-radius: 50%; /* Make it circular */
+  opacity: 0; /* Hide by default */
   transition: all 0.2s ease;
+  visibility: hidden; /* Hide completely */
 }
 
-.shareButtonHover {
+.aiMessage:hover .shareButton { /* Show on hover of the parent AI message */
+  opacity: 0.8;
+  visibility: visible;
+}
+
+.shareButton:hover { /* Hover effect for the button itself */
   opacity: 1;
-  transform: translateY(-2px);
+  background-color: rgba(255, 255, 255, 0.2);
 }
 
-.shareText {
-  font-size: 0.7rem;
-  margin-right: 4px;
-  color: rgba(248, 244, 237, 0.5);
-}
+/* Removed .shareButtonHover and .shareText as the button is now icon-only */
+/* .shareButtonHover { ... } */
+/* .shareText { ... } */
 
 .loadingDots {
   display: flex;
@@ -320,9 +335,10 @@
   width: 100%;
   max-width: 800px;
   margin-top: 20px;
-  background-color: rgba(255, 255, 255, 0.03);
+  background-color: #20232a; /* Unified dark background */
   border-radius: 12px;
   padding: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.08); /* Subtle border */
 }
 
 .examplesHeader {
@@ -355,7 +371,7 @@
 }
 
 .exampleCard {
-  background-color: rgba(30, 30, 30, 0.7);
+  background-color: #282c34; /* Slightly lighter for cards */
   border: 1px solid rgba(248, 244, 237, 0.1);
   border-radius: 8px;
   padding: 16px;

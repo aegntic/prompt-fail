@@ -1,13 +1,12 @@
 import { Request, Response, NextFunction } from 'express';
 import jwt from 'jsonwebtoken';
 import User from '../models/User';
-import { IUser } from '../models/User';
 import { config } from 'dotenv';
 
 config();
 
 interface AuthRequest extends Request {
-  user?: IUser;
+  user?: User;
 }
 
 export const authMiddleware = async (req: AuthRequest, res: Response, next: NextFunction) => {
@@ -18,8 +17,8 @@ export const authMiddleware = async (req: AuthRequest, res: Response, next: Next
   }
 
   try {
-    const decoded = jwt.verify(token, process.env.JWT_SECRET || 'your_jwt_secret') as { id: string };
-    const user = await User.findById(decoded.id);
+    const decoded = jwt.verify(token, process.env.JWT_SECRET as string) as { id: string };
+    const user = await User.findByPk(decoded.id);
 
     if (!user) {
       return res.status(401).send({ message: 'Invalid token' });
@@ -28,6 +27,7 @@ export const authMiddleware = async (req: AuthRequest, res: Response, next: Next
     req.user = user;
     next();
   } catch (error) {
-    res.status(401).send({ message: 'Invalid token' });
+    console.error('JWT verification error:', error); // Log the error on the server side
+    res.status(401).send({ message: 'Invalid token' }); // Return generic message to the client
   }
 };

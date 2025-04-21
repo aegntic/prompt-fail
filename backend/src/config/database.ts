@@ -3,13 +3,19 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 
+const { DB_USER, DB_PASSWORD, DB_HOST, DB_PORT, DB_NAME } = process.env;
+
+if (!DB_USER || !DB_PASSWORD || !DB_HOST || !DB_PORT || !DB_NAME) {
+  throw new Error("Missing required database environment variables. Please set DB_USER, DB_PASSWORD, DB_HOST, DB_PORT, and DB_NAME.");
+}
+
 const sequelize = new Sequelize(
-  process.env.DB_NAME || 'database',
-  process.env.DB_USER || 'user',
-  process.env.DB_PASSWORD || 'password',
+  DB_NAME,
+  DB_USER,
+  DB_PASSWORD,
   {
-    host: process.env.DB_HOST || 'localhost',
-    port: parseInt(process.env.DB_PORT || '5432'),
+    host: DB_HOST,
+    port: parseInt(DB_PORT),
     dialect: 'postgres',
   }
 );
