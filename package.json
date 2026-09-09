@@ -12,8 +12,7 @@
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage",
     "preview": "vite preview",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist",
+    "deploy": "gh-pages -d site",
     "posttest": "node scripts/updateTasks.js"
   },
   "dependencies": {
