@@ -1,0 +1,195 @@
+
+:root {
+  --paper: #f3f0e8;
+  --ink: #161616;
+  --mute: #5e5a52;
+  --rule: rgba(0, 47, 167, 0.35);
+  --accent: #002fa7;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background: var(--paper);
+  color: var(--ink);
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "EB Garamond", "Palatino Linotype", Palatino, "Book Antiqua", serif;
+  font-weight: 400;
+  font-size: 21px;
+  line-height: 1.45;
+}
+
+.letterhead,
+main,
+footer {
+  width: min(720px, calc(100% - 48px));
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.letterhead {
+  padding-top: 48px;
+  padding-bottom: 28px;
+  border-bottom: 1px solid var(--accent);
+}
+
+.institution,
+.domain,
+.hours,
+.kicker,
+.facts dt,
+.card h2,
+footer {
+  font-family: Archivo, Inter, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.institution {
+  margin: 0;
+  font-size: 12px;
+  color: var(--accent);
+}
+
+.domain {
+  margin: 10px 0 0;
+  font-size: 12px;
+  color: var(--ink);
+}
+
+.formal {
+  margin: 22px 0 0;
+  font-family: "EB Garamond", Palatino, serif;
+  font-style: italic;
+  font-weight: 500;
+  font-size: 40px;
+  line-height: 1.05;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.hours {
+  margin: 18px 0 0;
+  font-size: 11px;
+  color: var(--mute);
+}
+
+main {
+  padding-top: 36px;
+  padding-bottom: 18px;
+}
+
+.kicker {
+  margin: 0;
+  font-size: 11px;
+  color: var(--accent);
+}
+
+.accession {
+  margin: 14px 0 0;
+  font-family: "EB Garamond", Palatino, serif;
+  font-style: italic;
+  font-weight: 500;
+  font-size: 64px;
+  line-height: 0.9;
+  color: var(--accent);
+}
+
+h1 {
+  margin: 18px 0 0;
+  font-family: "EB Garamond", Palatino, serif;
+  font-style: italic;
+  font-weight: 500;
+  font-size: 36px;
+  line-height: 1.1;
+  letter-spacing: 0;
+}
+
+.facts {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+  margin: 28px 0 8px;
+  padding: 16px 0;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+}
+
+.facts div {
+  min-width: 0;
+}
+
+.facts dt {
+  margin: 0;
+  font-size: 11px;
+  color: var(--mute);
+}
+
+.facts dd {
+  margin: 8px 0 0;
+  font-style: italic;
+  font-size: 20px;
+}
+
+.card section {
+  padding-top: 22px;
+}
+
+.card h2 {
+  margin: 0 0 10px;
+  font-size: 11px;
+  color: var(--accent);
+}
+
+.card p {
+  margin: 0;
+}
+
+footer {
+  padding: 28px 0 56px;
+  border-top: 1px solid var(--rule);
+  font-size: 11px;
+  color: var(--mute);
+}
+
+footer p {
+  margin: 0;
+}
+
+@media (max-width: 640px) {
+  body {
+    font-size: 19px;
+  }
+
+  .formal {
+    font-size: 32px;
+  }
+
+  .accession {
+    font-size: 48px;
+  }
+
+  h1 {
+    font-size: 30px;
+  }
+
+  .facts {
+    grid-template-columns: 1fr;
+  }
+}
+
+footer a {
+  color: var(--accent);
+  text-decoration: none;
+  border-bottom: 1px solid var(--accent);
+}
+
